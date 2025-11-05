@@ -55,9 +55,10 @@ class IdeaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Idea $idea)
     {
-        //
+        $idea->load('comments.user'); // carrega comentários com usuário
+        return view('ideas.show', compact('idea'));
     }
 
     /**
@@ -65,7 +66,14 @@ class IdeaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $idea = Idea::findOrFail($id);
+        $idea->tags();
+        $tags = Tag::all();
+        return view('ideas.edit', [
+            'idea' => $idea,
+            'tags' => $tags
+        ]);
+
     }
 
     /**

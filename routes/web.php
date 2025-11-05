@@ -30,4 +30,13 @@ Route::get('/', [IdeaController::class, 'index'])->name('ideas.index');
 
 Route::get('/my-ideas', [IdeaController::class, 'myIdeas'])->name('ideas.mine');
 
+// Likes e dislikes da ideia
+Route::post('/ideas/{idea}/like', [IdeaController::class, 'like'])->name('ideas.like');
+Route::post('/ideas/{idea}/dislike', [IdeaController::class, 'dislike'])->name('ideas.dislike');
+
+// Likes e dislikes dos comentários
+Route::post('/comments/{comment}/like', [CommentController::class, 'like'])->name('comments.like');
+Route::post('/comments/{comment}/dislike', [CommentController::class, 'dislike'])->name('comments.dislike');
+
 require __DIR__.'/auth.php';
+
