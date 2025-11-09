@@ -33,39 +33,46 @@ class IdeaController extends Controller
      */
     public function store(Request $request)
     {
-       $validated = $request->validate([
+        $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'tag_id' => 'required|exists:tags,id',
         ]);
-
-        // Cria a ideia vinculada ao usuário logado
         $idea = Idea::create([
             'title' => $validated['title'],
             'description' => $validated['description'],
             'user_id' => Auth::id(),
         ]);
-
-        // Associa a tag única na tabela pivot idea_tag
         $idea->tags()->attach($validated['tag_id']);
 
         return redirect()->route('ideas.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Idea $idea)
     {
-        $idea->load(['comments.user']);
+        $idea->loadCount([
+            'votes as likes_count' => function ($query) {
+                $query->where('is_like', true);
+            },
+            'votes as dislikes_count' => function ($query) {
+                $query->where('is_like', false);
+            },
+        ]);
+        $idea->load([
+            'comments.user',
+        ]);
+        $idea->comments->loadCount([
+            'votes as likes_count' => function ($query) {
+                $query->where('is_like', true);
+            },
+            'votes as dislikes_count' => function ($query) {
+                $query->where('is_like', false);
+            },
+        ]);
         $idea->comments = $idea->comments->sortByDesc('created_at');
-        // dd($idea->comments);
         return view('ideas.show', compact('idea'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $idea = Idea::findOrFail($id);
@@ -75,23 +82,34 @@ class IdeaController extends Controller
             'idea' => $idea,
             'tags' => $tags
         ]);
-
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'tag_id' => 'required|exists:tags,id',
+        ]);
+        $idea = Idea::findOrFail($id);
+        if($idea->user_id !== auth()->id()) {
+            abort(403, 'Você não tem permissão para editar esta ideia.');
+        }
+        $idea->update([
+            'title' => $validated['title'],
+            'description' => $validated['description'],
+        ]);
+        $idea->tags()->sync([$validated['tag_id']]);
+        return redirect("ideas/$id");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        // 'user_id' => Auth::id(),
+        // 1 - Pra excluir precisa ser o dono da ideia
+        // 2 - Excluir todos comentários
+        // 3- Excluir likes/deslikes que sejam da ideia
+        // 4- Excluir likes/deslikes que sejam do comentário dessa idea
     }
 
     public function myIdeas()

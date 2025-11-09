@@ -20,9 +20,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
-    Route::resource('ideas', IdeaController::class)->except(['index']);
-    Route::post('/ideas/{idea}/vote', [VoteController::class, 'store'])->name('ideas.vote');
-    Route::post('/comments/{comment}/vote', [VoteController::class, 'storeComment'])->name('comments.vote');
+    Route::resource('ideas', IdeaController::class)->except(['index', 'show']);
+    // Route::post('/ideas/{idea}/vote', [VoteController::class, 'store'])->name('ideas.vote');
+    // Route::post('/comments/{comment}/vote', [VoteController::class, 'storeComment'])->name('comments.vote');
+
+
+    // Voto de comentário ou IDEA
+    Route::post('/vote', [VoteController::class, 'store'])->name('vote.store');
 
 
     // Comentários
@@ -34,14 +38,11 @@ Route::middleware('auth')->group(function () {
 Route::get('/', [IdeaController::class, 'index'])->name('ideas.index');
 
 Route::get('/my-ideas', [IdeaController::class, 'myIdeas'])->name('ideas.mine');
-
-// Likes e dislikes da ideia
-Route::post('/ideas/{idea}/like', [IdeaController::class, 'like'])->name('ideas.like');
-Route::post('/ideas/{idea}/dislike', [IdeaController::class, 'dislike'])->name('ideas.dislike');
+Route::get('/ideas/{idea}', [IdeaController::class, 'show'])->name('ideas.show');
 
 // Likes e dislikes dos comentários
-Route::post('/comments/{comment}/like', [CommentController::class, 'like'])->name('comments.like');
-Route::post('/comments/{comment}/dislike', [CommentController::class, 'dislike'])->name('comments.dislike');
-
+// Route::post('/comments/{comment}/like', [CommentController::class, 'like'])->name('comments.like');
+// Route::post('/comments/{comment}/dislike', [CommentController::class, 'dislike'])->name('comments.dislike');
+// 
 require __DIR__.'/auth.php';
 
