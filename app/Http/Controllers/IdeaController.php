@@ -57,7 +57,9 @@ class IdeaController extends Controller
      */
     public function show(Idea $idea)
     {
-        $idea->load('comments.user'); // carrega comentários com usuário
+        $idea->load(['comments.user']);
+        $idea->comments = $idea->comments->sortByDesc('created_at');
+        // dd($idea->comments);
         return view('ideas.show', compact('idea'));
     }
 

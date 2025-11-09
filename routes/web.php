@@ -21,9 +21,14 @@ Route::middleware('auth')->group(function () {
 
 
     Route::resource('ideas', IdeaController::class)->except(['index']);
-    Route::post('/ideas/{idea}/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::post('/ideas/{idea}/vote', [VoteController::class, 'store'])->name('ideas.vote');
     Route::post('/comments/{comment}/vote', [VoteController::class, 'storeComment'])->name('comments.vote');
+
+
+    // Comentários
+    Route::post('/ideas/{idea}/comments', [CommentController::class, 'store'])->name('comments.store');
+    Route::put('/comments/{comment}', [CommentController::class, 'update'])->name('comments.update');
+    Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
 });
 
 Route::get('/', [IdeaController::class, 'index'])->name('ideas.index');

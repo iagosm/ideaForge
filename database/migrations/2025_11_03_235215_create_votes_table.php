@@ -6,24 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('votes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->nullableMorphs('votable');
-            $table->boolean('is_like');
+            $table->nullableMorphs('votable'); // votable_id e votable_type
+            $table->enum('type', ['like', 'dislike']);
             $table->timestamps();
+            $table->unique(['user_id', 'votable_id', 'votable_type']); // um voto por item
         });
-
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('votes');
