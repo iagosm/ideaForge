@@ -36,4 +36,15 @@ class Idea extends Model
     {
         return $this->morphMany(Vote::class, 'votable');
     }
+    
+    protected static function booted()
+    {
+        static::deleting(function ($idea) {
+            $idea->votes()->delete();
+            foreach ($idea->comments as $comment) {
+                $comment->votes()->delete();
+            }
+            $idea->comments()->delete();
+       });
+    }
 }

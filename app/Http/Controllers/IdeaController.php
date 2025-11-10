@@ -9,28 +9,28 @@ use Illuminate\Http\Request;
 
 class IdeaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-
-        $ideas = Idea::with('tags')->get();
+        $ideas = Idea::with('tags')
+        ->withCount([
+            'votes as likes_count' => function ($query) {
+                $query->where('is_like', true);
+            },
+            'votes as dislikes_count' => function ($query) {
+                $query->where('is_like', false);
+            },
+        ])
+        ->latest()
+        ->get();
         return view('ideas.index', compact('ideas'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $tags = Tag::all();
         return view('ideas.create', compact('tags'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -105,17 +105,17 @@ class IdeaController extends Controller
 
     public function destroy(string $id)
     {
-        // 'user_id' => Auth::id(),
-        // 1 - Pra excluir precisa ser o dono da ideia
-        // 2 - Excluir todos comentários
-        // 3- Excluir likes/deslikes que sejam da ideia
-        // 4- Excluir likes/deslikes que sejam do comentário dessa idea
+        $idea = Idea::findOrFail($id);
+        if(auth()->id() !== $idea->user_id) {
+            abort(403, "Você não tem permissão para excluir essa Ideia");
+        }
+        $idea->delete();
+        return redirect("/");
     }
 
     public function myIdeas()
     {
         $ideas = Idea::where('user_id', auth()->id())->latest()->get();
-
         return view('ideas.my', compact('ideas'));
     }
 }
