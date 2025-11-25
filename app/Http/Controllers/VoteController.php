@@ -2,21 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VoteRequest;
 use App\Models\Comment;
 use App\Models\Idea;
 use App\Models\Vote;
-use Illuminate\Http\Request;
 
 class VoteController extends Controller
 {
-//    Route::post('/vote', [VoteController::class, 'store'])->name('vote.store');
-    public function store(Request $request)
+    //    Route::post('/vote', [VoteController::class, 'store'])->name('vote.store');
+    public function store(VoteRequest $request)
     {
-        $request->validate([
-            "votable_id" => "required",
-            "votable_type" => "required",
-            "is_like" => "required"
-        ]);
         $modelClass = match ($request->votable_type) {
             'idea' => Idea::class,
             'comment' => Comment::class,

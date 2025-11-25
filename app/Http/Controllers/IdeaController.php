@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\IdeaRequest;
 use App\Models\Idea;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
@@ -9,6 +10,10 @@ use Illuminate\Http\Request;
 
 class IdeaController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Idea::class, 'idea');
+    }
     public function index()
     {
         $ideas = Idea::with('tags')
@@ -31,7 +36,7 @@ class IdeaController extends Controller
         return view('ideas.create', compact('tags'));
     }
 
-    public function store(Request $request)
+    public function store(IdeaRequest $request)
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
@@ -84,7 +89,7 @@ class IdeaController extends Controller
         ]);
     }
 
-    public function update(Request $request, string $id)
+    public function update(IdeaRequest $request, string $id)
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',

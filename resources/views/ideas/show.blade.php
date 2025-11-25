@@ -15,18 +15,21 @@
                     </p>
                 </div>
 
-                <!-- Menu de opções da ideia (só aparece se for o dono) -->
-                @if(auth()->check() && auth()->id() === $idea->user_id)
-                    <div class="dropdown">
-                        <button class="p-0 btn btn-link text-dark" type="button" id="dropdownIdeaMenu" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownIdeaMenu">
+                <!-- Menu de opções da ideia (controlado por Policy) -->
+                <div class="dropdown">
+                    <button class="p-0 btn btn-link text-dark" type="button" id="dropdownIdeaMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownIdeaMenu">
+                        @can('update', $idea)
                             <li>
                                 <a href="{{ route('ideas.edit', $idea) }}" class="dropdown-item text-primary">
                                     ✏️ Editar Ideia
                                 </a>
                             </li>
+                        @endcan
+
+                        @can('delete', $idea)
                             <li>
                                 <form action="{{ route('ideas.destroy', $idea) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir esta ideia?')">
                                     @csrf
@@ -34,34 +37,42 @@
                                     <button type="submit" class="dropdown-item text-danger">🗑️ Excluir Ideia</button>
                                 </form>
                             </li>
-                        </ul>
-                    </div>
-                @endif
+                        @endcan
+                    </ul>
+                </div>
             </div>
 
             <p class="card-text">{{ $idea->description }}</p>
 
             <div class="mt-3 d-flex align-items-center">
-                <!-- Likes/Dislikes da ideia -->
-                <form action="{{ route('vote.store') }}" method="POST" class="me-2">
-                    @csrf
-                    <input type="hidden" name="votable_id" value="{{ $idea->id }}">
-                    <input type="hidden" name="votable_type" value="idea">
-                    <input type="hidden" name="is_like" value="1">
-                    <button type="submit" class="btn btn-outline-success btn-sm">
-                        👍 {{ $idea->likes_count ?? 0 }}
-                    </button>
-                </form>
+                <!-- Likes/Dislikes da ideia (apenas usuários autenticados podem votar) -->
+                @auth
+                    <form action="{{ route('vote.store') }}" method="POST" class="me-2">
+                        @csrf
+                        <input type="hidden" name="votable_id" value="{{ $idea->id }}">
+                        <input type="hidden" name="votable_type" value="idea">
+                        <input type="hidden" name="is_like" value="1">
+                        <button type="submit" class="btn btn-outline-success btn-sm">
+                            👍 {{ $idea->likes_count ?? 0 }}
+                        </button>
+                    </form>
 
-                <form action="{{ route('vote.store') }}" method="POST" class="me-3">
-                    @csrf
-                    <input type="hidden" name="votable_id" value="{{ $idea->id }}">
-                    <input type="hidden" name="votable_type" value="idea">
-                    <input type="hidden" name="is_like" value="0">
-                    <button type="submit" class="btn btn-outline-danger btn-sm">
-                        👎 {{ $idea->dislikes_count ?? 0 }}
-                    </button>
-                </form>
+                    <form action="{{ route('vote.store') }}" method="POST" class="me-3">
+                        @csrf
+                        <input type="hidden" name="votable_id" value="{{ $idea->id }}">
+                        <input type="hidden" name="votable_type" value="idea">
+                        <input type="hidden" name="is_like" value="0">
+                        <button type="submit" class="btn btn-outline-danger btn-sm">
+                            👎 {{ $idea->dislikes_count ?? 0 }}
+                        </button>
+                    </form>
+                @else
+                    <div class="me-3">
+                        <button class="btn btn-outline-success btn-sm" disabled>👍 {{ $idea->likes_count ?? 0 }}</button>
+                        <button class="btn btn-outline-danger btn-sm" disabled>👎 {{ $idea->dislikes_count ?? 0 }}</button>
+                        <a href="{{ route('login') }}" class="ms-2">Faça login para votar</a>
+                    </div>
+                @endauth
             </div>
         </div>
     </div>
@@ -93,33 +104,31 @@
                             <small class="text-muted">{{ $comment->created_at->diffForHumans() }}</small>
                         </div>
 
-                        <!-- Menu de opções do comentário -->
-                        @if(auth()->check() && (auth()->id() === $comment->user_id || auth()->id() === $idea->user_id))
-                            <div class="dropdown">
-                                <button class="p-0 btn btn-link text-dark" type="button" id="dropdownMenu{{ $comment->id }}" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu{{ $comment->id }}">
-                                    @if(auth()->id() === $comment->user_id)
-                                        <li>
-                                            <a href="#" class="dropdown-item text-primary" data-bs-toggle="modal" data-bs-target="#editCommentModal{{ $comment->id }}">
-                                                ✏️ Editar
-                                            </a>
-                                        </li>
-                                    @endif
+                        <!-- Menu de opções do comentário (controlado por Policy) -->
+                        <div class="dropdown">
+                            <button class="p-0 btn btn-link text-dark" type="button" id="dropdownMenu{{ $comment->id }}" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu{{ $comment->id }}">
+                                @can('update', $comment)
+                                    <li>
+                                        <a href="#" class="dropdown-item text-primary" data-bs-toggle="modal" data-bs-target="#editCommentModal{{ $comment->id }}">
+                                            ✏️ Editar
+                                        </a>
+                                    </li>
+                                @endcan
 
-                                    @if(auth()->id() === $comment->user_id || auth()->id() === $idea->user_id)
-                                        <li>
-                                            <form action="{{ route('comments.destroy', $comment->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este comentário?')">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="dropdown-item text-danger">🗑️ Excluir</button>
-                                            </form>
-                                        </li>
-                                    @endif
-                                </ul>
-                            </div>
-                        @endif
+                                @can('delete', $comment)
+                                    <li>
+                                        <form action="{{ route('comments.destroy', $comment->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este comentário?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="dropdown-item text-danger">🗑️ Excluir</button>
+                                        </form>
+                                    </li>
+                                @endcan
+                            </ul>
+                        </div>
                     </div>
 
                     <p class="mt-2">{{ $comment->content }}</p>
@@ -148,8 +157,8 @@
                     </div>
                 </div>
 
-                <!-- Modal de Edição do Comentário -->
-                @if(auth()->check() && auth()->id() === $comment->user_id)
+                <!-- Modal de Edição do Comentário (visível apenas se autorizado) -->
+                @can('update', $comment)
                     <div class="modal fade" id="editCommentModal{{ $comment->id }}" tabindex="-1" aria-labelledby="editCommentModalLabel{{ $comment->id }}" aria-hidden="true">
                         <div class="modal-dialog">
                             <form action="{{ route('comments.update', $comment->id) }}" method="POST" class="modal-content">
@@ -169,7 +178,7 @@
                             </form>
                         </div>
                     </div>
-                @endif
+                @endcan
             @empty
                 <p class="text-muted">Nenhum comentário ainda. Seja o primeiro!</p>
             @endforelse
