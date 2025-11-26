@@ -1,60 +1,109 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🚀 Idea Forge
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Plataforma Colaborativa de Criação, Discussão e Evolução de Ideias**
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 💡 Sobre o Projeto
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+O **Idea Forge** é uma plataforma social e colaborativa criada para reunir pessoas em torno da **criação, discussão e evolução de ideias**.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Seu propósito é simples: permitir que qualquer pessoa compartilhe uma ideia e receba **feedback construtivo** da comunidade, transformando conceitos iniciais em projetos mais sólidos e bem estruturados. Uma única frase pode se tornar o início de um grande projeto.
 
-## Learning Laravel
+## 🎯 Objetivos Principais
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+O Idea Forge nasceu com o propósito de criar um ambiente onde ideias possam:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+*   Ser publicadas de maneira rápida e simples.
+*   Receber feedback da comunidade.
+*   Evoluir conforme discussões e interações.
+*   Registrar sugestões técnicas (linguagens, frameworks, métodos, etc.).
+*   Possuir histórico e acompanhamento de evolução.
 
-## Laravel Sponsors
+A plataforma funciona como um ponto de partida para projetos, combinando colaboração social com potencial de automação via Inteligência Artificial.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🏗️ Funcionalidades Implementadas
 
-### Premium Partners
+O projeto já possui uma base sólida construída com **Laravel 11+**, garantindo um *backend* robusto e seguro.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 🔒 Autenticação (Laravel Breeze)
 
-## Contributing
+*   Login e Registro de usuários.
+*   Logout e proteção de rotas.
+*   Sessões seguras e padrões modernos de autenticação.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 📝 CRUD Completo de Ideias
 
-## Code of Conduct
+Os usuários autenticados podem gerenciar suas ideias:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+*   Criar, Editar e Excluir ideias.
+*   Listar e Visualizar detalhes de cada ideia.
+*   Cada ideia pertence a um usuário, garantindo autoria clara e organização.
 
-## Security Vulnerabilities
+### 🏷️ Sistema de Tags
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+*   Uma ideia pode ter várias tags.
+*   Tags ajudam na classificação e descoberta de temas.
+*   Relacionamento *many-to-many* totalmente funcional.
 
-## License
+## 💬 Funcionalidades Sociais Planejadas
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# ideaForge
+Para transformar o Idea Forge em uma plataforma realmente colaborativa e dinâmica, estão planejadas funcionalidades sociais robustas:
+
+*   **Comentários:** Discussões abertas dentro de cada ideia para feedback direto.
+*   **Likes e Dislikes:** Avaliação rápida da comunidade para ranqueamento e destaque de ideias promissoras.
+*   **Sugestões Técnicas nos Comentários:** O ponto social mais importante, permitindo contribuições construtivas como: "Acho que esse projeto ficaria melhor em Python" ou "Considere usar arquitetura de microserviços."
+
+## 🤖 Futuro: Integração com Inteligência Artificial
+
+Um dos pilares mais ambiciosos do projeto é incorporar IA para dar suporte à evolução das ideias. A IA poderá auxiliar de várias formas:
+
+| Área de Aplicação | Funcionalidades |
+| :--- | :--- |
+| **Opiniões Automáticas** | Pontos fortes e fracos, sugestões de tecnologias, dificuldades e riscos. |
+| **Análise de Comentários** | Síntese da discussão, destaque dos pontos mais citados e facilitação da leitura rápida. |
+| **Geração de Ideias Relacionadas** | Extensões naturais, variações criativas e novos caminhos a partir da ideia original. |
+| **Planejamento Automático** | Transformar uma ideia em algo concreto: estrutura inicial, tecnologias recomendadas, etapas sugeridas e *roadmap* organizado. |
+
+## 🛠️ Stack Tecnológica
+
+| Categoria | Tecnologia | Observação |
+| :--- | :--- | :--- |
+| **Core** | Laravel 11+ | Framework PHP principal. |
+| **Autenticação** | Laravel Breeze | Pacote de *scaffolding* de autenticação. |
+| **Frontend** | Blade / Tailwind CSS | Interface atual (se utilizado). |
+| **Banco de Dados** | MySQL ou PostgreSQL | Persistência de dados. |
+| **Admin (Planejado)** | Filament | Painel administrativo futuro. |
+| **IA (Planejado)** | OpenAI / LLMs | Integração para funcionalidades inteligentes. |
+
+## 🚀 Como Rodar o Projeto Localmente
+
+Siga os passos abaixo para configurar e executar o Idea Forge em seu ambiente local:
+
+1.  **Instalar dependências:**
+    ```bash
+    composer install
+    ```
+
+2.  **Configurar ambiente:**
+    ```bash
+    cp .env.example .env
+    php artisan key:generate
+    ```
+    *Certifique-se de configurar as credenciais do banco de dados no arquivo `.env`.*
+
+3.  **Criar banco de dados e rodar migrations:**
+    ```bash
+    php artisan migrate --seed
+    ```
+
+4.  **Iniciar o servidor:**
+    ```bash
+    php artisan serve
+    ```
+
+O projeto estará acessível em `http://127.0.0.1:8000` (ou porta similar).
+
+## 📜 Licença
+
+Este projeto está licenciado sob a **[Licença](LICENSE)**. Consulte o arquivo `LICENSE` para mais detalhes.
