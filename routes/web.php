@@ -46,3 +46,10 @@ Route::get('/ideas/{idea}', [IdeaController::class, 'show'])->name('ideas.show')
 // 
 require __DIR__.'/auth.php';
 
+
+
+
+
+Route::get('/template', function () {
+    return view('teste');
+});
