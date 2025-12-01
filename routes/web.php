@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/', [IdeaController::class, 'index'])->name('ideas.index');
 
 Route::get('/my-ideas', [IdeaController::class, 'myIdeas'])->name('ideas.mine');
-Route::get('/ideas/{idea}', [IdeaController::class, 'show'])->name('ideas.show');
+// Route::get('/idea/{idea}', [IdeaController::class, 'show'])->name('ideas.show');
 
 // Likes e dislikes dos comentários
 // Route::post('/comments/{comment}/like', [CommentController::class, 'like'])->name('comments.like');
@@ -53,3 +53,13 @@ require __DIR__.'/auth.php';
 Route::get('/template', function () {
     return view('teste');
 });
+
+Route::get('/how-it-works', function () {
+    return view('guia');
+})->name('how.it.works');
+Route::get('/explore', function () {
+    return view('explore');
+})->name('how.it.works');
+Route::get('/idea/{idea}', function () {
+    return view('idea');
+})->name('how.it.works');

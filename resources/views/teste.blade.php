@@ -1,6 +1,5 @@
   <!DOCTYPE html>
   <html lang="pt-BR">
-
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -141,42 +140,39 @@
               </div>
           </div>
       </nav>
-
       <!-- Hero Section -->
-      <section class="pt-5 mt-5 text-center">
-          <div class="container">
-              <div class="mb-4 floating-logo">
-                  <img src="{{ asset('assets/img/logo.png') }}" alt="Logo" class="logo-img">
-              </div>
-              <h1 class="mb-3 display-4 fw-bold">Crie sua próxima <span class="gradient-text">ideia</span></h1>
-              <p class="mb-4 lead text-muted">IdeaForge é a plataforma minimalista para transformar suas ideias em
-                  realidade, aperfeiçoá-las e compartilhá-las. Inteligência artificial e comunidade movem sua
-                  criatividade.</p>
-              {{-- Uma plataforma minimalista para transformar e evoluir suas ideias com inteligência artificial e comunidade. --}}
-              <div class="flex-wrap gap-3 d-flex justify-content-center">
-                  <a href="/create" class="gap-2 btn btn-dark btn-lg d-flex align-items-center">
-                      Crie sua Ideia <svg class="lucide lucide-arrow-right" width="20" height="20"
-                          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                          stroke-linecap="round" stroke-linejoin="round">
-                          <line x1="5" y1="12" x2="19" y2="12"></line>
-                          <polyline points="12 5 19 12 12 19"></polyline>
-                      </svg>
-                  </a>
-                  <a href="/how-it-works" class="btn btn-outline-secondary btn-lg">
-                      Guia
-                  </a>
-              </div>
-              <div class="gap-2 mt-3 mb-3 badge bg-light text-dark d-inline-flex align-items-center fs-6">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" class="lucide lucide-sparkles-icon lucide-sparkles">
-                      <path
-                          d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" />
-                      <path d="M20 2v4" />
-                      <path d="M22 4h-4" />
-                      <circle cx="4" cy="20" r="2" />
-                  </svg> Onde ideias se tornam realidades
-              </div>
+      <section class="container pt-5 mt-5 text-center" style="max-width: 900px;">
+          <div class="mb-4 floating-logo">
+              <img src="{{ asset('assets/img/logo.png') }}" alt="Logo" class="logo-img">
+          </div>
+          <h1 class="mb-3 display-3 fw-bold">Crie sua próxima <span class="gradient-text">ideia</span></h1>
+          <p class="mb-4 lead text-muted">IdeaForge é a plataforma minimalista para transformar suas ideias em
+              realidade, aperfeiçoá-las e compartilhá-las. Inteligência artificial e comunidade movem sua
+              criatividade.</p>
+          {{-- Uma plataforma minimalista para transformar e evoluir suas ideias com inteligência artificial e comunidade. --}}
+          <div class="flex-wrap gap-3 d-flex justify-content-center">
+              <a href="/create" class="gap-2 btn btn-dark btn-lg d-flex align-items-center">
+                  Crie sua Ideia <svg class="lucide lucide-arrow-right" width="20" height="20"
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+              </a>
+              <a href="/how-it-works" class="btn btn-outline-secondary btn-lg">
+                  Guia
+              </a>
+          </div>
+          <div class="gap-2 mt-3 mb-3 badge bg-light text-dark d-inline-flex align-items-center fs-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" class="lucide lucide-sparkles-icon lucide-sparkles">
+                  <path
+                      d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" />
+                  <path d="M20 2v4" />
+                  <path d="M22 4h-4" />
+                  <circle cx="4" cy="20" r="2" />
+              </svg> Onde ideias se tornam realidades
           </div>
       </section>
 
@@ -198,7 +194,7 @@
               <div class="row g-4">
                   <!-- Card 1 -->
                   <div class="col-12 col-md-4">
-                      <div class="border-0 shadow-sm card h-100">
+                      <div class="p-2 border-0 shadow-sm card h-100">
                           <div class="card-body d-flex flex-column">
                               <div class="mb-2 d-flex justify-content-between align-items-start">
                                   <span class="badge bg-light text-dark">Environment</span>
@@ -230,7 +226,7 @@
 
                   <!-- Card 2 -->
                   <div class="col-12 col-md-4">
-                      <div class="border-0 shadow-sm card h-100">
+                      <div class="p-2 border-0 shadow-sm card h-100">
                           <div class="card-body d-flex flex-column">
                               <div class="mb-2 d-flex justify-content-between align-items-start">
                                   <span class="badge bg-light text-dark">Education</span>
@@ -261,7 +257,7 @@
 
                   <!-- Card 3 -->
                   <div class="col-12 col-md-4">
-                      <div class="border-0 shadow-sm card h-100">
+                      <div class="p-2 border-0 shadow-sm card h-100">
                           <div class="card-body d-flex flex-column">
                               <div class="mb-2 d-flex justify-content-between align-items-start">
                                   <span class="badge bg-light text-dark">Health</span>
@@ -290,7 +286,7 @@
                       </div>
                   </div>
                   <div class="col-12 col-md-4">
-                      <div class="border-0 shadow-sm card h-100">
+                      <div class="p-2 border-0 shadow-sm card h-100">
                           <div class="card-body d-flex flex-column">
                               <div class="mb-2 d-flex justify-content-between align-items-start">
                                   <span class="badge bg-light text-dark">Environment</span>
@@ -322,7 +318,7 @@
 
                   <!-- Card 2 -->
                   <div class="col-12 col-md-4">
-                      <div class="border-0 shadow-sm card h-100">
+                      <div class="p-2 border-0 shadow-sm card h-100">
                           <div class="card-body d-flex flex-column">
                               <div class="mb-2 d-flex justify-content-between align-items-start">
                                   <span class="badge bg-light text-dark">Education</span>
@@ -353,7 +349,7 @@
 
                   <!-- Card 3 -->
                   <div class="col-12 col-md-4">
-                      <div class="border-0 shadow-sm card h-100">
+                      <div class="p-2 border-0 shadow-sm card h-100">
                           <div class="card-body d-flex flex-column">
                               <div class="mb-2 d-flex justify-content-between align-items-start">
                                   <span class="badge bg-light text-dark">Health</span>
@@ -474,12 +470,9 @@
               </div>
           </div>
       </footer>
-
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
-
   </html>
-
   {{-- # nav bar --}}
   {{-- normal = rgb(100 116 139 / var(--tw-text-opacity, 1)) --}}
   {{-- active = rgb(15 23 42 / var(--tw-text-opacity, 1)) --}}
