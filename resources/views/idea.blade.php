@@ -144,10 +144,10 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="container pt-5 mt-5 text-center" style="max-width: 900px;">
+    <section class="container pt-5 mt-5" style="max-width: 900px;">
 
         <!-- TAGS -->
-        <div class="flex-wrap gap-2 mb-3 d-flex">
+        <div class="flex-wrap gap-2 mb-3 text-center d-flex">
             <span class="flex-grow-0"
                 style="font-size: 10px; background-color: #E3E5E8; color:rgb(75, 85, 99); padding:4px; border-radius: 8px;">Sustentabilidade</span>
             <span class="flex-grow-0"
@@ -166,13 +166,11 @@
             <span class="flex-grow-0"
                 style="font-size: 10px; background-color: #E3E5E8; color:rgb(75, 85, 99); padding:4px; border-radius: 8px;">Secondary</span>
         </div>
-
         <h1 class="mb-3 text-start fw-bold" style="font-size: 3rem; line-height: 1;">
             App de Troca de Livros Local
         </h1>
-
         <!-- CARD HEADER -->
-        <div class="flex-wrap mt-3 mb-3 d-flex justify-content-between align-items-start">
+        <div class="flex-wrap mt-3 mb-3 d-flex justify-content-between align-items-center" style="border-bottom: 1px solid #F3F4F6; padding-bottom: 20px">
 
             <!-- ESQUERDA -->
             <div class="gap-3 d-flex align-items-center flex-grow-1">
@@ -216,7 +214,7 @@
 
                 <!-- Dropdown -->
                 <div class="dropdown">
-                    <button class="p-2 bg-transparent border-0 shadow-none btn" id="dropdownMenuBtn"
+                    <button class="p-0 bg-transparent border-0 shadow-none btn" id="dropdownMenuBtn"
                         data-bs-toggle="dropdown">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -270,11 +268,8 @@
 
             </div>
         </div>
-
-
-
         <!-- ACTIONS -->
-        <div class="gap-4 mt-2 mb-2 d-flex">
+        <div class="gap-4 mt-4 mb-4 d-flex">
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -295,19 +290,6 @@
                 </svg>
                 13
             </div>
-
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-share-2">
-                    <circle cx="18" cy="5" r="3" />
-                    <circle cx="6" cy="12" r="3" />
-                    <circle cx="18" cy="19" r="3" />
-                    <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" />
-                    <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" />
-                </svg>
-            </div>
-
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -321,9 +303,8 @@
                 AI Insights
             </div>
         </div>
-
         <!-- DESCRIÇÃO -->
-        <div class="mt-3 mb-3 text-start">
+        <div class="mt-4 mb-3 text-start">
             <h3>Descrição</h3>
             <p>
                 Esta ideia propõe um <strong>aplicativo mobile</strong> que conecta pessoas da mesma região
@@ -347,7 +328,7 @@
             </p>
         </div>
         <!-- CHANGELOG -->
-        <div class="mt-5">
+        <div class="mt-5 mb-5">
     <h5 class="mb-3 fw-bold">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -362,20 +343,17 @@
     <div class="border-0 list-group">
 
         <!-- Versão 1.1.0 -->
-        <div class="mb-2 border-0 list-group-item border-start border-3 border-primary ps-3">
+        <div class="mb-2 border-0 list-group-item border-start border-3 border-secondary ps-3">
             <a class="py-2 text-decoration-none w-100 d-flex justify-content-between align-items-center"
                data-bs-toggle="collapse" href="#v110">
                 <span class="fw-semibold text-dark">v1.1.0 — Expansão da ideia</span>
                 <small class="text-muted">01/12/2025</small>
             </a>
-
             <div id="v110" class="mt-2 collapse">
                 <div class="ps-2">
-
                     <p class="mb-2">
                         O usuário adicionou uma descrição mais completa explicando o propósito da ideia.
                     </p>
-
                     <p class="mb-1 fw-semibold small text-uppercase text-muted">Funcionalidades adicionadas</p>
                     <ul class="mb-2 small text-muted">
                         <li>Cadastro de livros com foto</li>
@@ -384,15 +362,12 @@
                         <li>Avaliação de usuários</li>
                         <li>Mapa de pontos de encontro</li>
                     </ul>
-
                     <p class="mb-0 small text-muted">
                         A ideia foi expandida e ganhou escopo mais definido.
                     </p>
-
                 </div>
             </div>
         </div>
-
         <!-- Versão 1.0.0 -->
         <div class="mb-2 border-0 list-group-item border-start border-3 border-secondary ps-3">
             <a class="py-2 text-decoration-none w-100 d-flex justify-content-between align-items-center"
@@ -400,7 +375,6 @@
                 <span class="fw-semibold text-dark">v1.0.0 — Ideia inicial</span>
                 <small class="text-muted">30/11/2025</small>
             </a>
-
             <div id="v100" class="mt-2 collapse">
                 <div class="ps-2">
                     <p class="mb-0 small text-muted">
@@ -409,34 +383,50 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
+
         
         <!-- Comentários -->
-        <div class="shadow-sm card">
+        <div class="">
             <div class="card-body">
                 <h5 class="mb-3 card-title">Comentários</h5>
-
                 <form action="#" method="POST" class="mb-4">
-                    <div class="mb-2">
-                        <textarea name="comment" class="form-control" rows="3" placeholder="Escreva seu comentário..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-success">Comentar</button>
-                </form>
+                  <div class="p-3 border rounded-4">
+                      <textarea class="p-0 border-0 shadow-none form-control" placeholder="Adicione seu feedback ou sugestão..." style="min-height: 120px; resize: none;"></textarea>
 
-                <div class="p-3 mb-3 border rounded position-relative">
+                      <div class="mt-2 d-flex justify-content-end">
+                          <button type="submit" class="gap-2 px-4 py-2 btn btn-dark d-inline-flex align-items-center rounded-pill">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-icon lucide-send"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
+                              Publicar
+                          </button>
+                      </div>
+                  </div>  
+                </form>
+                <div class="p-3 mb-3 position-relative">
                     <div class="d-flex justify-content-between align-items-start">
-                        <div>
-                            <p class="mb-1"><strong>Maria Silva</strong></p>
-                            <small class="text-muted">há 2 horas</small>
+                        <div class="gap-2 d-flex">
+                          <div>
+                            <img src="https://randomuser.me/api/portraits/men/43.jpg" alt="Walter White" width="45" height="45" class="rounded-circle">
+                          </div>
+                          <div>
+                              <p class="mb-1"><strong>Walter White</strong></p>
+                              <small class="text-muted">há 2 horas</small>
+                          </div>
                         </div>
 
                         <div class="dropdown">
                             <button class="p-0 btn btn-link text-dark" type="button" id="dropdownMenu1"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  class="lucide lucide-ellipsis-vertical-icon lucide-ellipsis-vertical">
+                                  <circle cx="12" cy="12" r="1" />
+                                  <circle cx="12" cy="5" r="1" />
+                                  <circle cx="12" cy="19" r="1" />
+                              </svg>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu1">
                                 <li>
@@ -454,56 +444,80 @@
                             </ul>
                         </div>
                     </div>
-
                     <p class="mt-2">Adorei essa ideia! Muito criativa e resolve um problema real.</p>
-
                     <div class="mt-1 d-flex align-items-center">
                         <form action="#" method="POST" class="me-2">
-                            <button type="submit" class="btn btn-outline-success btn-sm">
-                                👍 15
+                            <button type="submit" class="btn btn-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thumbs-up-icon lucide-thumbs-up"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg>
+                                 15
                             </button>
                         </form>
 
                         <form action="#" method="POST" class="me-2">
-                            <button type="submit" class="btn btn-outline-danger btn-sm">
-                                👎 0
+                            <button type="submit" class="btn btn-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thumbs-down-icon lucide-thumbs-down"><path d="M17 14V2"/><path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z"/></svg> 0
                             </button>
                         </form>
                     </div>
                 </div>
-
-                <div class="p-3 mb-3 border rounded position-relative">
+                <div class="p-3 mb-3 position-relative">
                     <div class="d-flex justify-content-between align-items-start">
-                        <div>
-                            <p class="mb-1"><strong>João Souza</strong></p>
-                            <small class="text-muted">há 1 dia</small>
+                        <div class="gap-2 d-flex">
+                          <div>
+                            <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Jeferson Santos" width="45" height="45" class="rounded-circle">
+                          </div>
+                          <div>
+                              <p class="mb-1"><strong>Jeferson Santos</strong></p>
+                              <small class="text-muted">há 2 horas</small>
+                          </div>
                         </div>
 
                         <div class="dropdown">
-                            <button class="p-0 btn btn-link text-dark" type="button" id="dropdownMenu2"
+                            <button class="p-0 btn btn-link text-dark" type="button" id="dropdownMenu1"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  class="lucide lucide-ellipsis-vertical-icon lucide-ellipsis-vertical">
+                                  <circle cx="12" cy="12" r="1" />
+                                  <circle cx="12" cy="5" r="1" />
+                                  <circle cx="12" cy="19" r="1" />
+                              </svg>
                             </button>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu2">
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu1">
                                 <li>
-                                    <button class="dropdown-item text-muted" disabled>Sem permissão</button>
+                                    <a href="#" class="dropdown-item" data-bs-toggle="modal">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flag-icon lucide-flag"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>  
+                                        Reportar
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-item" data-bs-toggle="modal"
+                                        data-bs-target="#editCommentModal1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil-icon lucide-pencil"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg> Editar
+                                    </a>
+                                </li>
+                                <li>
+                                    <form action="#" method="POST"
+                                        onsubmit="return confirm('Tem certeza que deseja excluir este comentário?')">
+                                        <button type="submit" class="dropdown-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-icon lucide-trash"><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg> Excluir</button>
+                                    </form>
                                 </li>
                             </ul>
                         </div>
                     </div>
-
-                    <p class="mt-2">Acho que poderia melhorar a parte da interface, mas a base é boa.</p>
-
+                    <p class="mt-2">Adorei essa ideia! Muito criativa e resolve um problema real.</p>
                     <div class="mt-1 d-flex align-items-center">
                         <form action="#" method="POST" class="me-2">
-                            <button type="submit" class="btn btn-outline-success btn-sm">
-                                👍 4
+                            <button type="submit" class="btn btn-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thumbs-up-icon lucide-thumbs-up"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg>
+                                 15
                             </button>
                         </form>
 
                         <form action="#" method="POST" class="me-2">
-                            <button type="submit" class="btn btn-outline-danger btn-sm">
-                                👎 1
+                            <button type="submit" class="btn btn-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thumbs-down-icon lucide-thumbs-down"><path d="M17 14V2"/><path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z"/></svg> 0
                             </button>
                         </form>
                     </div>
