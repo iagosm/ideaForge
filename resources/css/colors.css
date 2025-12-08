@@ -1,0 +1,63 @@
+/* ============================================
+   IDEAFORGE - VARIÁVEIS DE CORES
+   ============================================ */
+
+:root {
+    /* Cores Principais */
+    --if-primary: #000000;
+    --if-primary-dark: #1f2937;
+    --if-primary-light: #64748b;
+
+    /* Cores de Fundo */
+    --if-bg-primary: #ffffff;
+    --if-bg-secondary: #fafafa;
+    --if-bg-light: #f8f9fa;
+    --if-bg-dark: #1f2937;
+
+    /* Cores de Texto */
+    --if-text-primary: #000000;
+    --if-text-secondary: #64748b;
+    --if-text-muted: #6b7280;
+    --if-text-light: #9ca3af;
+
+    /* Cores de Status */
+    --if-success: #10b981;
+    --if-danger: #ef4444;
+    --if-warning: #f59e0b;
+    --if-info: #3b82f6;
+
+    /* Cores de Borda */
+    --if-border-light: #e5e7eb;
+    --if-border-medium: #d1d5db;
+    --if-border-dark: #9ca3af;
+
+    /* Cores de Gradiente */
+    --if-gradient-start: #1f2937;
+    --if-gradient-end: #000000;
+
+    /* Cores de Hover */
+    --if-hover-bg: #f8f9fa;
+    --if-hover-dark: #1f2937;
+
+    /* Opacidade */
+    --if-opacity-75: 0.75;
+    --if-opacity-50: 0.5;
+    --if-opacity-25: 0.25;
+}
+
+/* Classes Utilitárias de Cores */
+.bg-if-primary {
+    background-color: var(--if-primary) !important;
+}
+.bg-if-secondary {
+    background-color: var(--if-bg-secondary) !important;
+}
+.text-if-primary {
+    color: var(--if-text-primary) !important;
+}
+.text-if-secondary {
+    color: var(--if-text-secondary) !important;
+}
+.border-if-light {
+    border-color: var(--if-border-light) !important;
+}
